@@ -1,7 +1,7 @@
 # MCtimer
 Game timer for Minecraft speed running
 
-MCtimer is cross platform in game timer for use in Minecraft speed runmning. 
+MCtimer is cross platform in game timer for use in Minecraft speed running. 
 
 There are two timers, one in game(green) and real time(red).
 The in game timer calculates the time directly from the json file in the stats folder. 
