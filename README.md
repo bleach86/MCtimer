@@ -15,7 +15,7 @@ This runs on Linux, MacOS, and Windows. Recomended python 3.6+
 It may be required to install tkinter via `pip install python-tk`
 This assumes that your Minecraft saves are in the default location, if yours is different, you will need to edit your path for your OS.
 
-Run from cmd of terminal via `python mctimer.py` or `python3 mctimer.py`
+Run from cmd or terminal via `python mctimer.py` or `python3 mctimer.py`
 
 For use with minecfaft 1.13+, use unmodified. For minecraft 1.7-1.12.2 comment out line #44 and uncomment line #45.
 
