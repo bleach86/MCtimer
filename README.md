@@ -8,7 +8,7 @@ The in game timer calculates the time directly from the json file in the stats f
 This file is only updated by Minecraft when the game is paused, during an auto-save, and when the credits roll.
 That means that the timer is only updated when these events occur.
 
-The real time timer is updated every second. It can be reset to 0 by left clickiung, then left clicking again to start it again.
+The real time timer is updated every second. It can be reset to 0 by left clicking, then left clicking again to start it again.
 Both timers automatically reset when a new world is created.
 
 This runs on Linux, MacOS, and Windows. Recomended python 3.6+
