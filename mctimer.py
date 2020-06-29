@@ -72,7 +72,7 @@ def window2():
 def update_time():
     window.text.set(get_time())
     window.text2.set(real_time())
-    window.after(1000, update_time)
+    window.after(800, update_time)
     
 def clicked(event):
     left_click()
