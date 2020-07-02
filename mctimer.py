@@ -55,7 +55,7 @@ def get_time():
                 last_amount = amount
                 return run_time[:-3]
     except:
-        pass
+        return '0:00:00.000'
 
 def window2():
     greeting = tk.Label(fg="lime", bg="black", font="Arial 45 bold", textvariable=window.text)
@@ -87,10 +87,10 @@ def left_click():
 def real_time():
     global rt
     global click1
-    if get_time() == None:
+    if get_time() == '0:00:00.000':
         rt = time.time()
         click1 = 1
-        return None
+        return '0:00:00.000'
     elif click1 == 1:
         rt2 = time.time()
         real_time = rt2 - rt
