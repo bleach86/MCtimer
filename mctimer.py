@@ -4,6 +4,7 @@ import json
 import glob
 import datetime
 import time
+from nbt.nbt import NBTFile
 import tkinter as tk
 
 #"THE BEER-WARE LICENSE" (Revision 42):
@@ -42,8 +43,15 @@ def get_time():
         
         with open(timer) as json_file:
             data = json.load(json_file)
-            amount = data['stats']['minecraft:custom']['minecraft:play_one_minute']
-            #amount = data['stat.playOneMinute']
+            level = NBTFile(latest + "/level.dat")
+            try:
+                level = str(level["Data"]["Version"]["Name"])
+                if level >= '1.13':
+                    amount = data['stats']['minecraft:custom']['minecraft:play_one_minute']
+                else:
+                    amount = data['stat.playOneMinute']
+            except:
+                amount = data['stat.playOneMinute']
             json_file.close()
             amount2 = float(amount) / 20
             run_time = str(datetime.timedelta(seconds=amount2, milliseconds=0.5))
