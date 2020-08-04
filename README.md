@@ -19,7 +19,5 @@ See https://github.com/bleach86/MCtimer/releases/tag/v1.0 for binary release. Th
 
 Run from cmd or terminal via `python mctimer.py` or `python3 mctimer.py`
 
-For use with minecfaft 1.13+, use unmodified. For minecraft 1.7-1.12.2 comment out line #45 and uncomment line #46.
-
 "THE BEER-WARE LICENSE" (Revision 42):
 bleach86 wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return
