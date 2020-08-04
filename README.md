@@ -13,6 +13,7 @@ Both timers automatically reset when a new world is created.
 
 This runs on Linux, MacOS, and Windows. Recomended python 3.6+
 It may be required to install tkinter via `pip install python-tk`
+NBT is now a requirement `pip install nbt`
 This assumes that your Minecraft saves are in the default location, if yours is different, you will need to edit your path for your OS.
 
 See https://github.com/bleach86/MCtimer/releases/tag/v1.0 for binary release. The binary release includes everything needed and requires nothing to be installed and no CMD or terminal. Just double click and go.
