@@ -13,7 +13,7 @@ Both timers automatically reset when a new world is created.
 
 This runs on Linux, MacOS, and Windows. Recomended python 3.6+
 It may be required to install tkinter via `pip install python-tk`
-NBT is now a requirement `pip install nbt`
+bindglobal is now a requirement `pip install bindglobal`
 
 This assumes that your Minecraft saves are in the default location, if yours is different, you will need to edit your path for your OS.
 
