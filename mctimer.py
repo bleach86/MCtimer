@@ -7,7 +7,6 @@ import datetime
 import time
 import tkinter as tk
 from bindglobal import BindGlobal
-#import mct_config as cfg
 
 #"THE BEER-WARE LICENSE" (Revision 42):
 #bleach86 wrote this file. As long as you retain this notice you can do whatever you want with this stuff. 
