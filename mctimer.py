@@ -7,6 +7,7 @@ import datetime
 import time
 import tkinter as tk
 from bindglobal import BindGlobal
+#import mct_config as cfg
 
 #"THE BEER-WARE LICENSE" (Revision 42):
 #bleach86 wrote this file. As long as you retain this notice you can do whatever you want with this stuff. 
@@ -24,13 +25,15 @@ elif system_type == 'Darwin':
     directory = os.path.expanduser(data2['mac_saves'])
 elif system_type == 'Windows':
     directory = os.path.expanduser(data2['windows_saves'])
-
+amount2 = 0
 last_amount = 0
 window = tk.Tk()
 bg = BindGlobal(widget=window)
 window.text = tk.StringVar()
 window.text2 = tk.StringVar()
 rt = time.time()
+old_version = False
+count = 0
 if data2['auto_start'] == 'true':
     click1 = 1
     click2 = 1
@@ -42,6 +45,8 @@ def get_time():
 
     try:
         global last_amount
+        global old_version
+        global amount2
         #time.sleep(0.1)
         latest = max([os.path.join(directory,d) for d in os.listdir(directory)], key=os.path.getmtime)
         
@@ -59,6 +64,7 @@ def get_time():
                 amount = data['stats']['minecraft:custom']['minecraft:play_one_minute']
             except:
                 amount = data['stat.playOneMinute']
+                old_version = True
             json_file.close()
             amount2 = float(amount) / 20
             run_time = str(datetime.timedelta(seconds=amount2, milliseconds=0.5))
@@ -137,17 +143,27 @@ def real_time():
     global rt
     global click1
     global click2
+    global amount2
+    global old_version
+    global count
     if data2['auto_start'] == 'true':
         if get_time() == '0:00:00.000':
             rt = time.time()
             click1 = 1
             click2 = 1
+            count = 0
             return '0:00:00.000'
         elif click1 == 1:
-            rt2 = time.time()
-            real_time = rt2 - rt
-            rtc = str(datetime.timedelta(seconds=real_time))
-            return rtc[:-3]
+            if old_version == True and count == 0:
+                rt = float(time.time()) - float(amount2)
+                rtc = str(datetime.timedelta(seconds=rt))
+                count = 1
+                return rtc[:-3]
+            else:
+                rt2 = time.time()
+                real_time = rt2 - rt
+                rtc = str(datetime.timedelta(seconds=real_time))
+                return rtc[:-3]
     else:
         if click1 == 1:
             rt2 = time.time()
