@@ -15,10 +15,10 @@ from bindglobal import BindGlobal
 json_file = 'mct_config.json'
 with open(json_file) as json_file:
     data2 = json.load(json_file)
-if data2['windowed'] == 'true':
-     data2['windowed']   
+if data2['borderless'] == 'true':
+     data2['borderless']   
 else:
-    data2['windowed'] = False
+    data2['borderless'] = False
 
 system_type = platform.system()
 if system_type == 'Linux':
@@ -93,7 +93,7 @@ def window2():
     greeting.after(0, update_time)
     window.title("MCtimer")
     window.attributes('-topmost', True)
-    window.overrideredirect(data2['windowed'])
+    window.overrideredirect(data2['borderless'])
     window.geometry(data2['window_pos'])
     window.mainloop()
 
