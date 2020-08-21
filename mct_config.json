@@ -10,5 +10,6 @@
   "mac_saves": "~/Library/Application Support/minecraft/saves/",
   "windows_saves": "~\\AppData\\Roaming\\.minecraft\\saves\\",
   "rta_update": "1",
-  "window_pos": "+0+0"
+  "window_pos": "+0+0",
+  "borderless": "true"
 }
