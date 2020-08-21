@@ -23,17 +23,29 @@ See https://github.com/bleach86/MCtimer/releases/tag/v2.0 for executable release
 mct_config.json needs to be in the same directory as either mctimer.py, or the executable for your OS.
 
 **mct_confic.json explained**
+
 pause -used to set the hotkey for pause
+
 reset_start -used to set the hotkey for reset and start
+
 exit -used to set hotkey to close the timer
+
 auto_start -set to true to auto start rta timer on world load.(NOTE: the RTA timer need to be running before creating a new world for this to work properly. IE: if you pause the timer, you will need to reset then start before loading the next world) set to false for manual stop
+
 bg_color -sets background color
+
 igt_color -sets color of the igt
+
 rta_color -set color of the rta
+
 linux_saves -used to set path to saves directory on Linux
+
 mac_saves -used to set the path to saves directory on MacOS
+
 windows_saves -used to set path to saves directory on Windows. note the double '\\'
+
 rta_update -sets the update frequence of the rta timer in miliseconds. If cpu usage is too high, increase the number. 1 is 1 milisecond, and 1000 is one second. 25 is a nice amount to lower cpu usage.
+
 window_pos -sets where on screen the window is. +0+0 is top left corner. increase the first 0 to move right, and the second to move down.
 
 On Windows you may need to use virtual keyboard codes for certain hotkeys. For instance <96> sets to numpad 0. [Virtual Keyboard codes list](https://help.mjtnet.com/article/262-virtual-key-codes)
