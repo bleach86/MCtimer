@@ -50,5 +50,7 @@ mct_config.json needs to be in the same directory as either mctimer.py, or the e
 
 On Windows you may need to use virtual keyboard codes for certain hotkeys. For instance <96> sets to numpad 0. [Virtual Keyboard codes list](https://help.mjtnet.com/article/262-virtual-key-codes)
 
+Note: Hotkeys are currently not supported on MacOS. You will need to use mouse buttons instead. I am working on a solution and will add hotkeys to mac asap.
+
 "THE BEER-WARE LICENSE" (Revision 42):
 bleach86 wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return
