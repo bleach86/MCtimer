@@ -8,7 +8,8 @@ The in game timer calculates the time directly from the json file in the stats f
 This file is only updated by Minecraft when the game is paused, during an auto-save, and when the credits roll.
 That means that the timer is only updated when these events occur.
 
-The real time timer is updated every milisecond. It can be paused using a configurable hotkey or left-click, then it can be reset and started with a configurable hotkey or with right-click. And the timer can be closed using a configurable hotkey or middle-click.
+The real time timer is updated every milisecond. It can be paused using a configurable hotkey, then it can be reset and started with a configurable hotkey. And the timer can be closed using a configurable hotkey.
+For Mac, use Left-click to pause, right-click to reset/start, and middle click to exit.
 The IGT timer automatically reset when a new world is created. And the RTA timer can also be set to autostart on world load.
 The timer is also visible over full screen windows. The only one out there.
 
@@ -21,6 +22,7 @@ Run from cmd or terminal via `python mctimer.py` or `python3 mctimer.py`
 See https://github.com/bleach86/MCtimer/releases/tag/v2.0 for executable release. The executable release includes everything needed and requires nothing to be installed and no CMD or terminal. Just double click and go.
 
 mct_config.json needs to be in the same directory as either mctimer.py, or the executable for your OS.
+For Mac, when running the executable, mct_config.json needs to be in your home directory.
 
 **mct_confic.json explained**
 
@@ -47,6 +49,8 @@ mct_config.json needs to be in the same directory as either mctimer.py, or the e
 **rta_update** -sets the update frequence of the rta timer in miliseconds. If cpu usage is too high, increase the number. 1 is 1 milisecond, and 1000 is one second. 25 is a nice amount to lower cpu usage.
 
 **window_pos** -sets where on screen the window is. +0+0 is top left corner. increase the first 0 to move right, and the second to move down.
+
+**borderless** -set to true for borderless window. this is how timer can be visable over full screen.
 
 On Windows you may need to use virtual keyboard codes for certain hotkeys. For instance <96> sets to numpad 0. [Virtual Keyboard codes list](https://help.mjtnet.com/article/262-virtual-key-codes)
 
