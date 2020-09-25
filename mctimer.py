@@ -21,7 +21,7 @@ if data2['borderless'] == 'true':
 else:
     data2['borderless'] = False
     
-
+NUM_CHARS = 11
 system_type = platform.system()
 if system_type == 'Linux':
     directory = os.path.expanduser(data2['linux_saves'])
@@ -37,6 +37,8 @@ window.text = tk.StringVar()
 window.text2 = tk.StringVar()
 rt = time.time()
 old_version = False
+did_change = False
+stage = 0
 count = 0
 ig = 0
 if data2['auto_start'] == 'true':
@@ -53,6 +55,7 @@ def get_time():
         global old_version
         global amount2
         global ig
+        global did_change
         latest = max([os.path.join(directory,d) for d in os.listdir(directory)], key=os.path.getmtime)
         
         if system_type == "Linux" or system_type == "Darwin":
@@ -78,6 +81,7 @@ def get_time():
                 ig = 0
                 return run_time[:-3]
             else:
+                did_change = True
                 print(latest + "\nTime: " + run_time)
                 last_amount = amount
                 ig = 0
@@ -87,10 +91,19 @@ def get_time():
         return '0:00:00.000'
 
 def window2():
-    greeting = tk.Label(fg=data2['igt_color'], bg=data2['bg_color'], font="Arial 45 bold", textvariable=window.text)
+    font_name = data2['font_name']
+    font_size = data2['font_size']
+    font_modifiers = data2['font_modifiers']
+    font = (font_name, font_size, font_modifiers)
+    greeting = tk.Label(fg=data2['igt_color'], bg=data2['bg_color'], font=font, textvariable=window.text)
     greeting.pack()
-    greeting2 = tk.Label(fg=data2['rta_color'], bg=data2['bg_color'], font="Arial 45 bold", textvariable=window.text2)
+    greeting2 = tk.Label(fg=data2['rta_color'], bg=data2['bg_color'], font=font, textvariable=window.text2)
     greeting2.pack()
+    if data2['use_counter'] == 'true':
+        greeting3 = tk.Label(fg=data2['counter_color'], bg=data2['bg_color'], font=font, textvariable=window.text3)
+        greeting3.pack()
+        bg.gbind(data2['increment'], on_increment_counter)
+        greeting.after(0, update_count)
     bg.gbind(data2['pause'], on_press)
     bg.gbind(data2['reset_start'], on_press2)
     bg.gbind(data2['exit'], clicked3)
@@ -119,11 +132,25 @@ def update_time2():
     window.text.set(get_time())
     window.after(1500, update_time2)
 
+def update_count():
+    count_str = str(count)
+    text_str = ""
+    for i in range(0, int(NUM_CHARS/2)):
+        text_str += " "
+    text_str += count_str
+    for i in range(0, int(NUM_CHARS/2)):
+        text_str += " "
+    window.text3.set(text_str)
+    window.after(data2['rta_update'], update_count)
+
 def on_press(event):
     left_click()
 
 def on_press2(event):
     right_click()
+
+def on_increment_counter(event):
+    increment_counter()
 
 def clicked3(event):
     sys.exit(1)
@@ -144,6 +171,10 @@ def left_click():
 def right_click():
     global click1
     global click2
+    global count
+    global did_change
+    count = 0
+    did_change = True
     if click2 == 1:
         click1 = 0
         click2 = 0
@@ -151,27 +182,36 @@ def right_click():
         click2 = 1
         click1 = 1
 
+def increment_counter():
+    global count
+    count += 1
+
 def real_time():
     global rt
     global click1
     global click2
     global amount2
     global old_version
-    global count
+    global stage
     global ig
+    global did_change
+    if data2['auto_adjust'] == 'true':
+        if did_change:
+            rt = float(time.time()) - float(amount2)
+            did_change = False
     if data2['auto_start'] == 'true':
         if ig == 1:
             rt = time.time()
             click1 = 1
             click2 = 1
-            count = 0
+            stage = 0
             return '0:00:00.000'
         elif click1 == 1:
-            if old_version == True and count == 0:
+            if old_version == True and stage == 0:
                 ig = 0
                 rt = float(time.time()) - float(amount2)
                 rtc = str(datetime.timedelta(seconds=rt))
-                count = 1
+                stage = 1
                 return rtc[:-3]
             else:
                 ig = 0
