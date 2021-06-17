@@ -11,7 +11,7 @@ That means that the timer is only updated when these events occur.
 The real time timer is updated every milisecond. It can be paused using a configurable hotkey, then it can be reset and started with a configurable hotkey. And the timer can be closed using a configurable hotkey.
 For Mac, use Left-click to pause, right-click to reset/start, and middle click to exit.
 The IGT timer automatically reset when a new world is created. And the RTA timer can also be set to autostart on world load.
-The timer is also visible over full screen windows. The only one out there.
+The timer is also visible over full screen windows on Linux.
 
 This runs on Linux, MacOS, and Windows. Recomended python 3.6+
 If running mctimer.py directly.
