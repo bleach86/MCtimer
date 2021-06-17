@@ -68,8 +68,11 @@ def get_time():
             try:
                 amount = data['stats']['minecraft:custom']['minecraft:play_one_minute']
             except:
-                amount = data['stat.playOneMinute']
-                old_version = True
+                try:
+                    amount = data['stats']['minecraft:custom']['minecraft:play_time']
+                except:
+                    amount = data['stat.playOneMinute']
+                    old_version = True
             json_file.close()
             amount2 = float(amount) / 20
             run_time = str(datetime.timedelta(seconds=amount2, milliseconds=0.5))
