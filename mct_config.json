@@ -1,5 +1,5 @@
 {
-  "pause": "<Numpad_0>",
+  "pause": "`",
   "reset_start": "<Alt_L>",
   "exit": "~",
   "auto_start": "true",
