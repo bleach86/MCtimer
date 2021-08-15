@@ -1,11 +1,12 @@
 {
-  "pause": "`",
+  "pause": "<Numpad_0>",
   "reset_start": "<Alt_L>",
   "exit": "~",
   "auto_start": "true",
   "bg_color": "black",
   "igt_color": "lime",
   "rta_color": "red",
+  "font": "CBM 25 bold",
   "linux_saves": "~/.minecraft/saves/",
   "mac_saves": "~/Library/Application Support/minecraft/saves/",
   "windows_saves": "~\\AppData\\Roaming\\.minecraft\\saves\\",
