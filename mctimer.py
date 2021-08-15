@@ -73,6 +73,7 @@ def get_time():
                 except:
                     amount = data['stat.playOneMinute']
                     old_version = True
+    
             json_file.close()
             amount2 = float(amount) / 20
             run_time = str(datetime.timedelta(seconds=amount2, milliseconds=0.5))
@@ -84,15 +85,15 @@ def get_time():
                 print(latest + "\nTime: " + run_time)
                 last_amount = amount
                 ig = 0
-                return run_time[:-3]
+            return run_time[:-3]
     except:
         ig = 1
         return '0:00:00.000'
 
 def window2():
-    greeting = tk.Label(fg=data2['igt_color'], bg=data2['bg_color'], font="Arial 45 bold", textvariable=window.text)
+    greeting = tk.Label(fg=data2['igt_color'], bg=data2['bg_color'], font=data2['font'], textvariable=window.text)
     greeting.pack()
-    greeting2 = tk.Label(fg=data2['rta_color'], bg=data2['bg_color'], font="Arial 45 bold", textvariable=window.text2)
+    greeting2 = tk.Label(fg=data2['rta_color'], bg=data2['bg_color'], font=data2['font'], textvariable=window.text2)
     greeting2.pack()
     bg.gbind(data2['pause'], on_press)
     bg.gbind(data2['reset_start'], on_press2)
