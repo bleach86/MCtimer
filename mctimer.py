@@ -70,6 +70,7 @@ def get_time():
             except:
                 try:
                     amount = data['stats']['minecraft:custom']['minecraft:play_time']
+                    old_version = True
                 except:
                     amount = data['stat.playOneMinute']
                     old_version = True
